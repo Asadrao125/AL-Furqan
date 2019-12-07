@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/ivMusic"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="3dp"
+        android:src="@drawable/img"/>
+    <TextView
+        android:id="@+id/txtName"
+        android:layout_marginLeft="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Surat Name"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:layout_toRightOf="@+id/ivMusic"
+        android:textSize="17dip"/>
+    <TextView
+        android:id="@+id/txtSinger"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/ivMusic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recited By"
+        android:textColor="#808080"
+        android:textSize="16dip"
+        android:layout_below="@+id/txtName"/>
+
+    <ImageView
+        android:id="@+id/ivPlay"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignTop="@+id/txtName"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/play"/>
+<!--
+    <ImageView
+        android:id="@+id/ivStop"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/stop" />-->
+</RelativeLayout>

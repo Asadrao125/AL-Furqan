@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Themes"
+    android:background="#fff"
+    android:orientation="vertical"
+    android:theme="@style/AppTheme.AppBarOverlay">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"
+        android:layout_marginBottom="20dp"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/back"
+            android:id="@+id/btnBack"/>
+
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <Button
+            android:layout_width="170dp"
+            android:layout_height="70dp"
+            android:textColor="#fff"
+            android:background="#008577"
+            android:id="@+id/btnDefaultTheme"
+            android:layout_marginBottom="20dp"/>
+        <Button
+            android:layout_width="170dp"
+            android:layout_height="70dp"
+            android:textColor="#fff"
+            android:background="#000"
+            android:layout_below="@+id/btnDefaultTheme"
+            android:id="@+id/btnDarkTheme"
+            android:layout_marginBottom="20dp"/>
+        <Button
+            android:layout_width="170dp"
+            android:layout_height="70dp"
+            android:layout_below="@+id/btnDarkTheme"
+            android:textColor="#fff"
+            android:background="#1180ff"
+            android:id="@+id/btnPeachTheme"
+            android:layout_marginBottom="20dp" />
+        <Button
+            android:layout_width="170dp"
+            android:layout_height="70dp"
+            android:layout_below="@+id/btnDarkTheme"
+            android:textColor="#fff"
+            android:background="#68829e"
+            android:id="@+id/btntheme4"
+            android:layout_marginBottom="20dp" />
+        <Button
+            android:layout_width="170dp"
+            android:layout_height="70dp"
+            android:layout_below="@+id/btnDarkTheme"
+            android:textColor="#fff"
+            android:background="#07575b"
+            android:id="@+id/btntheme5"
+            android:layout_marginBottom="20dp" />
+        <!--<Button
+            android:layout_width="170dp"
+            android:layout_height="70dp"
+            android:layout_below="@+id/btnDarkTheme"
+            android:textColor="#fff"
+            android:background="#cdcdc0"
+            android:id="@+id/btntheme6"
+            android:layout_marginBottom="20dp" />-->
+
+    </LinearLayout>
+
+</LinearLayout>

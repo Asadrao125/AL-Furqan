@@ -1,0 +1,64 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="MaterialDrawerTheme">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionModeOverlay">true</item>
+    </style>
+
+    <!-- just change the parent -->
+    <style name="AppTheme2" parent="MaterialDrawerTheme">
+        <item name="colorPrimaryDark">#DE000000</item>
+        <item name="colorPrimary">#212121</item>
+        <item name="colorAccent">#FF9800</item>
+
+    </style>
+
+    <!-- just change the parent -->
+    <style name="AppTheme3" parent="MaterialDrawerTheme">
+        <item name="colorPrimaryDark">#1180ff</item>
+        <item name="colorPrimary">#4b9eff</item>
+        <item name="colorAccent">#71b3ff</item>
+
+    </style>
+
+
+    <!-- just change the parent -->
+    <style name="AppTheme4" parent="MaterialDrawerTheme">
+        <item name="colorPrimaryDark">#505160</item>
+        <item name="colorPrimary">#68829e</item>
+        <item name="colorAccent">#68829e</item>
+
+    </style>
+
+
+    <!-- just change the parent -->
+    <style name="AppTheme5" parent="MaterialDrawerTheme">
+        <item name="colorPrimaryDark">#003b46</item>
+        <item name="colorPrimary">#07575b</item>
+        <item name="colorAccent">#66a5ad</item>
+
+    </style>
+
+    <!-- just change the parent -->
+    <style name="AppTheme6" parent="MaterialDrawerTheme">
+        <item name="colorPrimaryDark">#626d71</item>
+        <item name="colorPrimary">#cdcdc0</item>
+        <item name="colorAccent">#cdcdc0</item>
+
+    </style>
+
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+</resources>

@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Al-Furqan</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Al-Furqan</string>
+    <string name="nav_header_subtitle">Android Developer</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_aboutus">About Us</string>
+    <string name="action_moreapps">More Apps</string>
+    <string name="action_help">Help</string>
+    <string name="action_readquran">Read Quran</string>
+    <string name="title_activity_main3">Islamic App</string>
+    <string name="action_settings">Settings</string>
+    <string name="aboutus">For the Muslim brothers and sisters across the world
+                            wide and also for those who love to listen or read the Quran.
+                            What if you listen to the Quran only in the audio with beautiful
+        voices? Just put the headphones, play the Quran, enjoy your every single
+        peaceful moment. With the help of this app, you can listen to any verse of the Quran.
+        There is such a thing that you are listening to the Quran and have been reading it together
+        at same time. </string>
+    <string name="feature">=> Listen To Quranic Surah.\n\n=> Read Quranic Surah.\n\n=> Read Quran.\n\n=> Apply Themes.</string>
+    <string name="list_of_surat_here">List Of Surat Here</string>
+    <string name="read_quran">Read Quran</string>
+    <string name="read_surat">Read Surat</string>
+    <string name="themes">Themes</string>
+    <string name="about">About</string>
+    <string name="help">Help</string>
+</resources>
