@@ -22,6 +22,8 @@ import com.github.barteksc.pdfviewer.PDFView;
 public class PDFOpenerPara extends AppCompatActivity {
     PDFView myPDFViewer;
     Button btnBack;
+    private long backPressedTime;
+    private Toast backToast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,7 @@ public class PDFOpenerPara extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(PDFOpenerPara.this, Main2Activity.class));
+                finish();
             }
         });
         String getItem = getIntent().getStringExtra("pdfFilesName");
@@ -121,5 +124,19 @@ public class PDFOpenerPara extends AppCompatActivity {
             Toast.makeText(this, "No Matching PDF Found", Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (backPressedTime + 2000 > System.currentTimeMillis()) {
+            backToast.cancel();
+            super.onBackPressed();
+            return;
+        } else {
+            backToast = Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT);
+            backToast.show();
+        }
+
+        backPressedTime = System.currentTimeMillis();
     }
 }

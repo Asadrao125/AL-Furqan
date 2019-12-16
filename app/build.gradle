@@ -35,4 +35,6 @@ dependencies {
 
     //Drawer Theme
     implementation "com.mikepenz:materialdrawer:6.0.6"
+    //Run Time Permission
+    implementation 'com.karumi:dexter:5.0.0'
 }

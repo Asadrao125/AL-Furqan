@@ -35,9 +35,17 @@
             android:layout_width="170dp"
             android:layout_height="70dp"
             android:textColor="#fff"
-            android:background="#008577"
+            android:background="#626d71"
             android:id="@+id/btnDefaultTheme"
             android:layout_marginBottom="20dp"/>
+        <Button
+            android:layout_width="170dp"
+            android:layout_height="70dp"
+            android:layout_below="@+id/btnDarkTheme"
+            android:textColor="#fff"
+            android:background="#07575b"
+            android:id="@+id/btntheme5"
+            android:layout_marginBottom="20dp" />
         <Button
             android:layout_width="170dp"
             android:layout_height="70dp"
@@ -62,23 +70,5 @@
             android:background="#68829e"
             android:id="@+id/btntheme4"
             android:layout_marginBottom="20dp" />
-        <Button
-            android:layout_width="170dp"
-            android:layout_height="70dp"
-            android:layout_below="@+id/btnDarkTheme"
-            android:textColor="#fff"
-            android:background="#07575b"
-            android:id="@+id/btntheme5"
-            android:layout_marginBottom="20dp" />
-        <!--<Button
-            android:layout_width="170dp"
-            android:layout_height="70dp"
-            android:layout_below="@+id/btnDarkTheme"
-            android:textColor="#fff"
-            android:background="#cdcdc0"
-            android:id="@+id/btntheme6"
-            android:layout_marginBottom="20dp" />-->
-
     </LinearLayout>
-
 </LinearLayout>

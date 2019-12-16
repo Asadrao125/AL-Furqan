@@ -20,10 +20,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Main2Activity extends AppCompatActivity {
     ListView pdfListView;
     SearchView svQuran;
+    private long backPressedTime;
+    private Toast backToast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +70,7 @@ public class Main2Activity extends AppCompatActivity {
                 Intent intent = new Intent(Main2Activity.this,PDFOpenerPara.class);
                 intent.putExtra("pdfFilesName",item);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -77,5 +81,20 @@ public class Main2Activity extends AppCompatActivity {
 
     public void btnBack(View view) {
         startActivity(new Intent(Main2Activity.this, MainActivity.class));
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (backPressedTime + 2000 > System.currentTimeMillis()) {
+            backToast.cancel();
+            super.onBackPressed();
+            return;
+        } else {
+            backToast = Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT);
+            backToast.show();
+        }
+
+        backPressedTime = System.currentTimeMillis();
     }
 }

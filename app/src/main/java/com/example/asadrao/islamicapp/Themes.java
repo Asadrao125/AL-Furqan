@@ -22,6 +22,9 @@ public class Themes extends AppCompatActivity implements View.OnClickListener {
     public static final String APP_PREFERENCES="notepad_settings";
     private int theme;
 
+    private long backPressedTime;
+    private Toast backToast;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -51,6 +54,7 @@ public class Themes extends AppCompatActivity implements View.OnClickListener {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Themes.this,MainActivity.class));
+                finish();
             }
         });
     }
@@ -61,7 +65,7 @@ public class Themes extends AppCompatActivity implements View.OnClickListener {
         switch (v.getId())
         {
             case R.id.btnDefaultTheme:
-                settings.edit().putInt(THEME_Key, R.style.AppTheme).apply();
+                settings.edit().putInt(THEME_Key, R.style.AppTheme6).apply();
                 restartApp();
                 break;
             case R.id.btnDarkTheme:
@@ -87,5 +91,18 @@ public class Themes extends AppCompatActivity implements View.OnClickListener {
     {
         startActivity(new Intent(getApplicationContext(), MainActivity.class));
         finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (backPressedTime + 2000 > System.currentTimeMillis()) {
+            backToast.cancel();
+            super.onBackPressed();
+            return;
+        } else {
+            backToast = Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT);
+            backToast.show();
+        }
+        backPressedTime = System.currentTimeMillis();
     }
 }

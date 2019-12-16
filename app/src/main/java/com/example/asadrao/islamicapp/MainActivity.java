@@ -1,5 +1,6 @@
 package com.example.asadrao.islamicapp;
 
+import android.Manifest;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -7,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
@@ -19,19 +21,32 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionDeniedResponse;
+import com.karumi.dexter.listener.PermissionGrantedResponse;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.single.PermissionListener;
+
+import java.io.File;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    private ArrayList<Music> arrayList;
+   /* private ArrayList<Music> arrayList;
     private CustonMusicAdpter adapter;
-    private ListView songList;
+    private ListView songList;*/
+   private ListView myListViewForSurat;
+   String[] items;
     private long backPressedTime;
     private Toast backToast;
 
@@ -44,17 +59,9 @@ public class MainActivity extends AppCompatActivity
         setTheme(theme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        myListViewForSurat = findViewById(R.id.myListViewForSurat);
 
-
-        songList = (ListView) findViewById(R.id.songList);
-        arrayList = new ArrayList<>();
-        arrayList.add(new Music("Surah Fatihah","Unknown",R.raw.al_fatiha));
-        arrayList.add(new Music("Surah Nisa","Unknown",R.raw.al_nisa));
-        arrayList.add(new Music("Surah Anaam","Unknown",R.raw.al_anaam));
-
-        adapter= new CustonMusicAdpter(this, R.layout.custom_music_item, arrayList);
-        songList.setAdapter(adapter);
-
+        runtimePermission();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -69,6 +76,9 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+
     }
 
     @Override
@@ -119,20 +129,24 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.themes)
         {
             startActivity(new Intent(MainActivity.this, Themes.class));
+            finish();
         }
         else if (id == R.id.read_quran)
         {
             Intent intent = new Intent(MainActivity.this, Main2Activity.class);
             startActivity(intent);
+            finish();
         }
         else if (id == R.id.read_surat)
         {
             Intent intent = new Intent(MainActivity.this,Main3Activity.class);
             startActivity(intent);
+            finish();
         }
         else if (id == R.id.about_us)
         {
            startActivity(new Intent(MainActivity.this, about.class));
+           finish();
         }
         else if (id == R.id.help)
         { }
@@ -140,9 +154,76 @@ public class MainActivity extends AppCompatActivity
         {
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
             drawer.closeDrawer(GravityCompat.START);
+            //finish();
         }
         /*DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);*/
         return true;
+    }
+    public void runtimePermission()
+    {
+        Dexter.withActivity(this)
+                .withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
+                .withListener(new PermissionListener() {
+                    @Override
+                    public void onPermissionGranted(PermissionGrantedResponse response) {
+                        display();
+                    }
+
+                    @Override
+                    public void onPermissionDenied(PermissionDeniedResponse response) {
+
+                    }
+
+                    @Override
+                    public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {
+                        token.continuePermissionRequest();
+                    }
+                }).check();
+    }
+    public ArrayList<File> findSurat(File file)
+    {
+        ArrayList<File> arrayList = new ArrayList<>();
+        File[] files = file.listFiles();
+        for (File singleFile: files)
+        {
+            if (singleFile.isDirectory() && !singleFile.isHidden())
+            {
+                arrayList.addAll(findSurat(singleFile));
+            }
+            else
+            {
+                if (singleFile.getName().endsWith(".mp3") || singleFile.getName().endsWith(".wav"))
+                {
+                    arrayList.add(singleFile);
+                }
+            }
+        }
+        return arrayList;
+    }
+    void display()
+    {
+        final  ArrayList<File> mySurat = findSurat(Environment.getExternalStorageDirectory());
+        items = new String[mySurat.size()];
+        for (int i=0; i<mySurat.size(); i++)
+        {
+            items[i] = mySurat.get(i).getName().toString().replace(".mp3","").replace(".wav","");
+        }
+        ArrayAdapter<String> myArrayAdapter = new ArrayAdapter<String>(this,R.layout.custom_surat_layout,R.id.textView,items);
+        myListViewForSurat.setAdapter(myArrayAdapter);
+
+        myListViewForSurat.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                String suratName = myListViewForSurat.getItemAtPosition(position).toString();
+
+                startActivity(new Intent(MainActivity.this, PlayerActivity.class)
+                .putExtra("surat", mySurat).putExtra("suratName", suratName)
+                .putExtra("pos",position));
+                finish();
+            }
+        });
+
     }
 }

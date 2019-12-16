@@ -9,9 +9,5 @@
     <color name="colorAccent_dark" >#FF9800</color>
     <color name="colorPrimaryDark_dark" >#DE000000</color>
 
-    <!--Peach Theme Colors-->
-    <color name="colorPrimaryPeach">#FFC87E</color>
-    <color name="colorAccent_dark_Peach" >#4dad5f</color>
-    <color name="colorPrimaryDarkPeach" >#FF8D7E</color>
 
 </resources>

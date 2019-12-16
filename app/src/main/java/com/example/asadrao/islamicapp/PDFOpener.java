@@ -23,6 +23,8 @@ public class PDFOpener extends AppCompatActivity {
 
     PDFView myPDFViewer;
     Button btnBack;
+    private long backPressedTime;
+    private Toast backToast;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // set theme
@@ -37,6 +39,7 @@ public class PDFOpener extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(PDFOpener.this, Main3Activity.class));
+                finish();
             }
         });
         String getItem = getIntent().getStringExtra("pdfFilesName");
@@ -127,5 +130,19 @@ public class PDFOpener extends AppCompatActivity {
             Toast.makeText(this, "No Matching PDF Found", Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (backPressedTime + 2000 > System.currentTimeMillis()) {
+            backToast.cancel();
+            super.onBackPressed();
+            return;
+        } else {
+            backToast = Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT);
+            backToast.show();
+        }
+
+        backPressedTime = System.currentTimeMillis();
     }
 }
