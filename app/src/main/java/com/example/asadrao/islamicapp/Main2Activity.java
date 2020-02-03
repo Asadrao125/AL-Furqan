@@ -39,7 +39,11 @@ public class Main2Activity extends AppCompatActivity {
         svQuran = findViewById(R.id.svQuran);
 
         pdfListView = (ListView)findViewById(R.id.myPDFList);
-        String[] pdfFiles = {"Para No 1","Para No 2","Para No 3","Para No 4","Para No 5"};
+        String[] pdfFiles = {"Para No 1","Para No 2","Para No 3","Para No 4","Para No 5","Para No 6"
+                             ,"Para No 7","Para No 8","Para No 9","Para No 10","Para No 11","Para No 12","Para No 13"
+                             ,"Para No 14","Para No 15","Para No 16","Para No 17","Para No 18","Para No 19","Para No 20","Para No 21"
+                             ,"Para No 22","Para No 23","Para No 24","Para No 25","Para No 26","Para No 27","Para No 28"
+                             ,"Para No 29","Para No 30"};
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.custom,R.id.textView,pdfFiles)
         {
             @NonNull
@@ -77,6 +81,8 @@ public class Main2Activity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+        TextView mTitle = toolbar.findViewById(R.id.tv);
+        mTitle.setText("Read Quran");
     }
 
     public void btnBack(View view) {
@@ -86,7 +92,7 @@ public class Main2Activity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (backPressedTime + 2000 > System.currentTimeMillis()) {
+        /*if (backPressedTime + 2000 > System.currentTimeMillis()) {
             backToast.cancel();
             super.onBackPressed();
             return;
@@ -95,6 +101,8 @@ public class Main2Activity extends AppCompatActivity {
             backToast.show();
         }
 
-        backPressedTime = System.currentTimeMillis();
+        backPressedTime = System.currentTimeMillis();*/
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
     }
 }

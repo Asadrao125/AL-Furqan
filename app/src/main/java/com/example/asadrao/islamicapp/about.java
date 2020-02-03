@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class about extends AppCompatActivity {
@@ -27,6 +28,8 @@ public class about extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+        TextView mTitle = toolbar.findViewById(R.id.tv);
+        mTitle.setText("About");
 
         findViewById(R.id.btnBack).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,7 +42,7 @@ public class about extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (backPressedTime + 2000 > System.currentTimeMillis()) {
+       /* if (backPressedTime + 2000 > System.currentTimeMillis()) {
             backToast.cancel();
             super.onBackPressed();
             return;
@@ -48,6 +51,8 @@ public class about extends AppCompatActivity {
             backToast.show();
         }
 
-        backPressedTime = System.currentTimeMillis();
+        backPressedTime = System.currentTimeMillis();*/
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
     }
 }

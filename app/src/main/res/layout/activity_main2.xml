@@ -8,51 +8,54 @@
     tools:context=".Main2Activity">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/appbar"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/toolbar"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
-            <LinearLayout
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="20dp"
+                android:onClick="btnBack"
+                android:src="@drawable/back" />
+
+            <TextView
+                android:id="@+id/tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="dummy"
+                android:textColor="#fff"
+                android:textSize="20sp" />
+
+            <SearchView
+                android:id="@+id/svQuran"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:gravity="right"
+                android:iconifiedByDefault="true"
+                android:layoutDirection="rtl"
+                android:queryHint="Search Surat" />
 
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/back"
-                    android:onClick="btnBack"
-                    android:layout_marginTop="8dp"/>
-                <SearchView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/svQuran"
-                    android:gravity="right"
-                    android:layoutDirection="rtl"
-                    android:queryHint="Search Surat"
-                    android:iconifiedByDefault="true">
-                </SearchView>
-
-            </LinearLayout>
 
         </android.support.v7.widget.Toolbar>
 
 
     </android.support.design.widget.AppBarLayout>
+
     <ListView
+        android:id="@+id/myPDFList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/myPDFList"
         android:layout_below="@+id/appbar"
-        android:dividerHeight="1sp"
-        android:listSelector="#E0E0E0"
-        android:divider="@color/colorPrimary">
-    </ListView>
+        android:dividerHeight="2sp"
+        android:listSelector="#E0E0E0"/>
 </RelativeLayout>

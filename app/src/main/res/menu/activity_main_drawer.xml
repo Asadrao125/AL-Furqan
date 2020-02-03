@@ -3,44 +3,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
-        <item
-            android:icon="@drawable/read_quran"
-            android:id="@+id/read_quran"
-            android:title="@string/read_quran" />
-        <item
-            android:icon="@drawable/read"
-            android:id="@+id/read_surat"
-            android:title="@string/read_surat" />
-        <item
-            android:icon="@drawable/theme"
-            android:id="@+id/themes"
-            android:title="@string/themes"
-            />
-        <item
-            android:icon="@drawable/aboutus"
-            android:id="@+id/about_us"
-            android:title="@string/about" />
-        <item
-            android:icon="@drawable/help"
-            android:id="@+id/help"
-            android:title="@string/help" />
-        <item
-            android:id="@+id/close_drawer"
-            android:title="Close Drawer" />
-    </group>
-
-   <!-- <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
-        </menu>
-    </item> -->
-
+    <item
+        android:id="@+id/read_quran"
+        android:icon="@drawable/icon_read"
+        android:title="@string/read_quran" />
+    <item
+        android:id="@+id/read_surat"
+        android:icon="@drawable/icon_read"
+        android:title="@string/read_surat" />
+    <item
+        android:id="@+id/prayer_times"
+        android:icon="@drawable/icon_read"
+        android:title="Prayer Times" />
+    <item
+        android:id="@+id/compass"
+        android:icon="@drawable/icon_read"
+        android:title="Qibla Compass" />
+    <item
+        android:id="@+id/themes"
+        android:icon="@drawable/icon_theme"
+        android:title="@string/themes" />
+    <item
+        android:id="@+id/about_us"
+        android:icon="@drawable/icon_about"
+        android:title="@string/about" />
 </menu>

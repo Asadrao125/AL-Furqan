@@ -55,10 +55,12 @@ public class Main3Activity extends AppCompatActivity
         });
 
 
-        pdfListView = (ListView)findViewById(R.id.myPDFList);
-        String[] pdfFiles = {"Surah e Fatiha","Surah e Kausar","Surah e Mulk","Surah e Nisa","Surah e Rehman","Surah e Yaseen"};
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.custom,R.id.textView,pdfFiles)
-        {
+        pdfListView = (ListView) findViewById(R.id.myPDFList);
+        String[] pdfFiles = {"Surah e Fatiha", "Surah e Kausar", "Surah e Mulk", "Surah e Nisa", "Surah e Rehman", "Surah e Yaseen",
+                "Surah Aadiyat", "Surah Qariah", "Surah Alaq", "Surah Asar", "Surah Falak", "Surah feel", "Surah Hamza",
+                "Surah Ikhlas", "Surah Kafirun", "Surah Lahab", "Surah Maoon", "Surah Misid", "Surah Naas", "Surah Nasar",
+                "Surah Qadar", "Surah Quraish", "Surah Takasur", "Surah Teen", "Surah Zilzalaha"};
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.custom, R.id.textView, pdfFiles) {
             @NonNull
             @Override
             public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -73,6 +75,7 @@ public class Main3Activity extends AppCompatActivity
             public boolean onQueryTextSubmit(String text) {
                 return false;
             }
+
             @Override
             public boolean onQueryTextChange(String text) {
 
@@ -84,8 +87,8 @@ public class Main3Activity extends AppCompatActivity
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String item = pdfListView.getItemAtPosition(position).toString();
-                Intent intent = new Intent(Main3Activity.this,PDFOpener.class);
-                intent.putExtra("pdfFilesName",item);
+                Intent intent = new Intent(Main3Activity.this, PDFOpener.class);
+                intent.putExtra("pdfFilesName", item);
                 startActivity(intent);
                 finish();
             }
@@ -93,6 +96,8 @@ public class Main3Activity extends AppCompatActivity
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        TextView mTitle = toolbar.findViewById(R.id.tv);
+        mTitle.setText("Read Surah");
 
     }
 
@@ -109,15 +114,7 @@ public class Main3Activity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        if (backPressedTime + 2000 > System.currentTimeMillis()) {
-            backToast.cancel();
-            super.onBackPressed();
-            return;
-        } else {
-            backToast = Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT);
-            backToast.show();
-        }
-
-        backPressedTime = System.currentTimeMillis();
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
     }
 }

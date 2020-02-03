@@ -8,10 +8,10 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Themes extends AppCompatActivity implements View.OnClickListener {
-    Button btnDefaultTheme;
     Button btnDarkTheme;
     Button btnPeachTheme;
     Button btnBack;
@@ -19,11 +19,8 @@ public class Themes extends AppCompatActivity implements View.OnClickListener {
     Button btntheme5;
     private SharedPreferences settings;
     public static final String THEME_Key = "app_theme";
-    public static final String APP_PREFERENCES="notepad_settings";
+    public static final String APP_PREFERENCES = "notepad_settings";
     private int theme;
-
-    private long backPressedTime;
-    private Toast backToast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,14 +35,14 @@ public class Themes extends AppCompatActivity implements View.OnClickListener {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+        TextView mTitle = toolbar.findViewById(R.id.tv);
+        mTitle.setText("Themes");
 
-        btnDefaultTheme = findViewById(R.id.btnDefaultTheme);
         btnDarkTheme = findViewById(R.id.btnDarkTheme);
         btnPeachTheme = findViewById(R.id.btnPeachTheme);
         btntheme4 = findViewById(R.id.btntheme4);
         btntheme5 = findViewById(R.id.btntheme5);
 
-        btnDefaultTheme.setOnClickListener(this);
         btnDarkTheme.setOnClickListener(this);
         btnPeachTheme.setOnClickListener(this);
         btntheme4.setOnClickListener(this);
@@ -53,7 +50,7 @@ public class Themes extends AppCompatActivity implements View.OnClickListener {
         findViewById(R.id.btnBack).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Themes.this,MainActivity.class));
+                startActivity(new Intent(Themes.this, MainActivity.class));
                 finish();
             }
         });
@@ -62,12 +59,7 @@ public class Themes extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
 
-        switch (v.getId())
-        {
-            case R.id.btnDefaultTheme:
-                settings.edit().putInt(THEME_Key, R.style.AppTheme6).apply();
-                restartApp();
-                break;
+        switch (v.getId()) {
             case R.id.btnDarkTheme:
                 settings.edit().putInt(THEME_Key, R.style.AppTheme2).apply();
                 restartApp();
@@ -87,22 +79,15 @@ public class Themes extends AppCompatActivity implements View.OnClickListener {
         }
 
     }
-    public void restartApp()
-    {
+
+    public void restartApp() {
         startActivity(new Intent(getApplicationContext(), MainActivity.class));
         finish();
     }
 
     @Override
     public void onBackPressed() {
-        if (backPressedTime + 2000 > System.currentTimeMillis()) {
-            backToast.cancel();
-            super.onBackPressed();
-            return;
-        } else {
-            backToast = Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT);
-            backToast.show();
-        }
-        backPressedTime = System.currentTimeMillis();
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
     }
 }

@@ -9,7 +9,6 @@
     android:background="#fff"
     android:orientation="vertical">
 
-
     <ImageView
         android:layout_width="140dp"
         android:layout_height="140dp"

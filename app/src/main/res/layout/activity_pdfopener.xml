@@ -8,36 +8,37 @@
     tools:context=".PDFOpener">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/appbar"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/toolbar"
             android:elevation="4dp"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/back"
-                        android:id="@+id/btnBack"/>
-                   <Spinner
-                       android:layout_width="wrap_content"
-                       android:layout_height="40dp"
-                       android:id="@+id/spinner"
-                       android:layout_marginLeft="140dp"
-                       android:popupBackground="#fff"
-                       android:popupElevation="4dp">
-                   </Spinner>
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:id="@+id/text1"
-                       android:textSize="26sp"/>
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/back" />
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="120dp"
+                android:popupBackground="#fff"
+                android:popupElevation="4dp" />
+
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="26sp" />
 
         </android.support.v7.widget.Toolbar>
 
@@ -46,9 +47,9 @@
 
     <com.github.barteksc.pdfviewer.PDFView
         android:id="@+id/pdfViewer"
-        android:layout_below="@+id/appbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_below="@+id/appbar" />
 
 
 </RelativeLayout>

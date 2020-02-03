@@ -44,7 +44,10 @@ public class PDFOpener extends AppCompatActivity {
         });
         String getItem = getIntent().getStringExtra("pdfFilesName");
 
-        String[] pdfFiles = {"Select Surah To Read","Surah e Fatiha","Surah e Kausar","Surah e Mulk","Surah e Nisa","Surah e Rehman","Surah e Yaseen"};
+        String[] pdfFiles = {"Select Surah to Read","Surah e Fatiha","Surah e Kausar","Surah e Mulk","Surah e Nisa","Surah e Rehman","Surah e Yaseen",
+                "Surah Aadiyat","Surah Qariah","Surah Alaq","Surah Asar","Surah Falak","Surah feel","Surah Hamza",
+                "Surah Ikhlas","Surah Kafirun","Surah Lahab","Surah Maoon","Surah Misid","Surah Naas","Surah Nasar",
+                "Surah Qadar","Surah Quraish","Surah Takasur","Surah Teen","Surah Zilzalaha"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.spinnerlayout,R.id.textView,pdfFiles)
         {
             @NonNull
@@ -89,9 +92,81 @@ public class PDFOpener extends AppCompatActivity {
                 {
                     myPDFViewer.fromAsset("surah_yaseen.PDF").load();
                 }
-                else
+                else if (position == 7)
                 {
-                    //Toast.makeText(PDFOpener.this, "No Matched Resource!", Toast.LENGTH_SHORT).show();
+                    myPDFViewer.fromAsset("aadiat.pdf").load();
+                }
+                else if (position == 8)
+                {
+                    myPDFViewer.fromAsset("al_qariah.pdf").load();
+                }
+                else if (position == 9)
+                {
+                    myPDFViewer.fromAsset("alaq.pdf").load();
+                }
+                else if (position == 10)
+                {
+                    myPDFViewer.fromAsset("asr.pdf").load();
+                }
+                else if (position == 11)
+                {
+                    myPDFViewer.fromAsset("falak.pdf").load();
+                }
+                else if (position == 12)
+                {
+                    myPDFViewer.fromAsset("feel.pdf").load();
+                }
+                else if (position == 13)
+                {
+                    myPDFViewer.fromAsset("hamza.pdf").load();
+                }
+                else if (position == 14)
+                {
+                    myPDFViewer.fromAsset("ikhlas.pdf").load();
+                }
+                else if (position == 15)
+                {
+                    myPDFViewer.fromAsset("kafirun.pdf").load();
+                }
+                else if (position == 16)
+                {
+                    myPDFViewer.fromAsset("lahab.pdf").load();
+                }
+                else if (position == 17)
+                {
+                    myPDFViewer.fromAsset("maoon.pdf").load();
+                }
+                else if (position == 18)
+                {
+                    myPDFViewer.fromAsset("misd.pdf").load();
+                }
+                else if (position == 19)
+                {
+                    myPDFViewer.fromAsset("naas.pdf").load();
+                }
+                else if (position == 20)
+                {
+                    myPDFViewer.fromAsset("nasar2.pdf").load();
+                }
+                else if (position == 21)
+                {
+                    myPDFViewer.fromAsset("qadar.pdf").load();
+                }
+                else if (position == 22)
+                {
+                    myPDFViewer.fromAsset("quraish.pdf").load();
+                }
+                else if (position == 23)
+                {
+                    myPDFViewer.fromAsset("takasur.pdf").load();
+                }
+                else if (position == 24)
+                {
+                    myPDFViewer.fromAsset("teen.pdf").load();
+                }
+                else if (position == 25)
+                {
+                    myPDFViewer.fromAsset("zilzalaha.pdf").load();
                 }
             }
 
@@ -125,24 +200,87 @@ public class PDFOpener extends AppCompatActivity {
         {
             myPDFViewer.fromAsset("surah_yaseen.PDF").load();
         }
-        else
+        else if (getItem.equals("Surah Aadiyat"))
         {
-            Toast.makeText(this, "No Matching PDF Found", Toast.LENGTH_SHORT).show();
+            myPDFViewer.fromAsset("aadiat.pdf").load();
         }
-
+        else if (getItem.equals("Surah Qariah"))
+        {
+            myPDFViewer.fromAsset("al_qariah.PDF").load();
+        }
+        else if (getItem.equals("Surah Alaq"))
+        {
+            myPDFViewer.fromAsset("alaq.pdf").load();
+        }
+        else if (getItem.equals("Surah Asar"))
+        {
+            myPDFViewer.fromAsset("asr.pdf").load();
+        }
+        else if (getItem.equals("Surah Falak"))
+        {
+            myPDFViewer.fromAsset("falak.pdf").load();
+        }
+        else if (getItem.equals("Surah feel"))
+        {
+            myPDFViewer.fromAsset("feel.pdf").load();
+        }
+        else if (getItem.equals("Surah Ikhlas"))
+        {
+            myPDFViewer.fromAsset("ikhlas.pdf").load();
+        }
+        else if (getItem.equals("Surah Kafirun"))
+        {
+            myPDFViewer.fromAsset("kafirun.pdf").load();
+        }
+        else if (getItem.equals("Surah Lahab"))
+        {
+            myPDFViewer.fromAsset("lahab.pdf").load();
+        }
+        else if (getItem.equals("Surah Maoon"))
+        {
+            myPDFViewer.fromAsset("maoon.pdf").load();
+        }
+        else if (getItem.equals("Surah Misid"))
+        {
+            myPDFViewer.fromAsset("misd.pdf").load();
+        }
+        else if (getItem.equals("Surah Naas"))
+        {
+            myPDFViewer.fromAsset("naas.pdf").load();
+        }
+        else if (getItem.equals("Surah Nasar"))
+        {
+            myPDFViewer.fromAsset("nasar2.pdf").load();
+        }
+        else if (getItem.equals("Surah Qadar"))
+        {
+            myPDFViewer.fromAsset("qadar.pdf").load();
+        }
+        else if (getItem.equals("Surah Quraish"))
+        {
+            myPDFViewer.fromAsset("quraish.pdf").load();
+        }
+        else if (getItem.equals("Surah Takasur"))
+        {
+            myPDFViewer.fromAsset("takasur.pdf").load();
+        }
+        else if (getItem.equals("Surah Teen"))
+        {
+            myPDFViewer.fromAsset("teen.pdf").load();
+        }
+        else if (getItem.equals("Surah Zilzalaha"))
+        {
+            myPDFViewer.fromAsset("zilzalaha.pdf").load();
+        }
+        else if (getItem.equals("Surah Hamza"))
+        {
+            myPDFViewer.fromAsset("hamza.pdf").load();
+        }
     }
 
     @Override
     public void onBackPressed() {
-        if (backPressedTime + 2000 > System.currentTimeMillis()) {
-            backToast.cancel();
-            super.onBackPressed();
-            return;
-        } else {
-            backToast = Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT);
-            backToast.show();
-        }
-
-        backPressedTime = System.currentTimeMillis();
+       startActivity(new Intent(getApplicationContext(), Main3Activity.class));
+       finish();
     }
 }

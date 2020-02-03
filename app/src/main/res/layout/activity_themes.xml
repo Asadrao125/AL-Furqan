@@ -4,71 +4,72 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Themes"
     android:background="#fff"
     android:orientation="vertical"
-    android:theme="@style/AppTheme.AppBarOverlay">
+    android:theme="@style/AppTheme.AppBarOverlay"
+    tools:context=".Themes">
 
     <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/toolbar"
         android:layout_marginBottom="20dp"
         android:background="?attr/colorPrimary"
         app:popupTheme="@style/AppTheme.PopupOverlay">
 
         <ImageView
+            android:id="@+id/btnBack"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/back"
-            android:id="@+id/btnBack"/>
+            android:layout_marginRight="20dp"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="dummy"
+            android:textColor="#fff"
+            android:textSize="20sp" />
 
     </android.support.v7.widget.Toolbar>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="vertical">
 
         <Button
-            android:layout_width="170dp"
-            android:layout_height="70dp"
-            android:textColor="#fff"
-            android:background="#626d71"
-            android:id="@+id/btnDefaultTheme"
-            android:layout_marginBottom="20dp"/>
-        <Button
-            android:layout_width="170dp"
-            android:layout_height="70dp"
-            android:layout_below="@+id/btnDarkTheme"
-            android:textColor="#fff"
-            android:background="#07575b"
             android:id="@+id/btntheme5"
-            android:layout_marginBottom="20dp" />
-        <Button
-            android:layout_width="170dp"
+            android:layout_width="200dp"
             android:layout_height="70dp"
-            android:textColor="#fff"
-            android:background="#000"
-            android:layout_below="@+id/btnDefaultTheme"
+            android:layout_below="@+id/btnDarkTheme"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/theme_green_button" />
+
+        <Button
             android:id="@+id/btnDarkTheme"
-            android:layout_marginBottom="20dp"/>
-        <Button
-            android:layout_width="170dp"
+            android:layout_width="200dp"
             android:layout_height="70dp"
-            android:layout_below="@+id/btnDarkTheme"
-            android:textColor="#fff"
-            android:background="#1180ff"
+            android:layout_below="@+id/btnDefaultTheme"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/theme_button_black" />
+
+        <Button
             android:id="@+id/btnPeachTheme"
-            android:layout_marginBottom="20dp" />
-        <Button
-            android:layout_width="170dp"
+            android:layout_width="200dp"
             android:layout_height="70dp"
             android:layout_below="@+id/btnDarkTheme"
-            android:textColor="#fff"
-            android:background="#68829e"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/theme_button_sky" />
+
+        <Button
             android:id="@+id/btntheme4"
-            android:layout_marginBottom="20dp" />
+            android:layout_width="200dp"
+            android:layout_height="70dp"
+            android:layout_below="@+id/btnDarkTheme"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/theme_button_gray" />
     </LinearLayout>
 </LinearLayout>
