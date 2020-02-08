@@ -43,9 +43,9 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private ListView myListViewForSurat;
-    String[] items;
     private long backPressedTime;
     private Toast backToast;
+    String[] items;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

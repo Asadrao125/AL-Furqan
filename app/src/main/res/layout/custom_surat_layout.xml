@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="#fff">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@drawable/background_rectangle">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_audio"
+            android:id="@+id/img"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/img"
+            android:layout_centerVertical="true"
+            android:textColor="#000"
+            android:text="@string/list_of_surat_here"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/textView"
+            android:padding="5dp"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
